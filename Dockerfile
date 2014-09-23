@@ -1,8 +1,6 @@
 FROM ubuntu:14.04
 MAINTAINER Jason Wilder jwilder@litl.com
 
-VOLUME /ssl
-
 # Install Nginx.
 RUN echo "deb http://ppa.launchpad.net/nginx/stable/ubuntu trusty main" > /etc/apt/sources.list.d/nginx-stable-trusty.list
 RUN echo "deb-src http://ppa.launchpad.net/nginx/stable/ubuntu trusty main" >> /etc/apt/sources.list.d/nginx-stable-trusty.list
@@ -20,6 +18,8 @@ RUN chmod u+x /usr/local/bin/forego
 
 RUN wget https://github.com/jwilder/docker-gen/releases/download/0.3.3/docker-gen-linux-amd64-0.3.3.tar.gz
 RUN tar -C /usr/local/bin -xvzf docker-gen-linux-amd64-0.3.3.tar.gz
+
+VOLUME /ssl
 
 RUN mkdir /app
 WORKDIR /app

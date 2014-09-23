@@ -1,5 +1,6 @@
 server {
-	listen 80 default_server;
+	listen 80;
+	listen 443 default_server ssl;
 	server_name _; # This is just an invalid value which will never trigger on a real hostname.
 	error_log /proc/self/fd/2;
 	access_log /proc/self/fd/1;
