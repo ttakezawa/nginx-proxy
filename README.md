@@ -24,3 +24,9 @@ If your container exposes multiple ports, nginx-proxy will default to the servic
 ### Multiple Hosts
 
 If you need to support multipe virtual hosts for a container, you can separate each enty with commas.  For example, `foo.bar.com,baz.bar.com,bar.com` and each host will be setup the same.
+
+### SSL
+
+If you require ssl add your certificate and key to /srv/ssl/www.example.com/server.{crt,key} and bind this directory to /ssl in the container
+
+    $ docker run -d -p 443:443 -p 80:80 -v /srv/ssl:/ssl -v /var/run/docker.sock:/tmp/docker.sock jwilder/nginx-proxy

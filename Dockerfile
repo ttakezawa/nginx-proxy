@@ -1,6 +1,8 @@
 FROM ubuntu:14.04
 MAINTAINER Jason Wilder jwilder@litl.com
 
+VOLUME /ssl
+
 # Install Nginx.
 RUN echo "deb http://ppa.launchpad.net/nginx/stable/ubuntu trusty main" > /etc/apt/sources.list.d/nginx-stable-trusty.list
 RUN echo "deb-src http://ppa.launchpad.net/nginx/stable/ubuntu trusty main" >> /etc/apt/sources.list.d/nginx-stable-trusty.list
